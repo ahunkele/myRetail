@@ -2,13 +2,15 @@ package com.interview.myRetail.Entity;
 
 import java.math.BigDecimal;
 
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.Length;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.interview.myRetail.Entity.utils.CurrencyCode;
 
 /**
  * 
@@ -21,11 +23,15 @@ public final class Price
     @Id
     private String id;
 
+	@Field("price_value")
+	@JsonProperty("value")
     private BigDecimal value;
 
+	@Length( max = 3, message = "Code can not be more than 3 characters")
+	@Pattern(regexp = "^[^0-9]+$", message = "The currencyCode cannot contain digits")
+	@Field("currency_code")
     @JsonProperty("currency_code")
-    @Field
-    private CurrencyCode currencyCode;
+    private String currencyCode;
 
     public String getId()
     {
@@ -37,12 +43,12 @@ public final class Price
         this.id = id;
     }
 
-    public CurrencyCode getCurrencyCode()
+    public String getCurrencyCode()
     {
         return currencyCode;
     }
 
-    public void setCurrencyCode(final CurrencyCode currencyCode)
+    public void setCurrencyCode(final String currencyCode)
     {
         this.currencyCode = currencyCode;
     }
