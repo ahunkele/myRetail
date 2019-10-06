@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * 
+ * Price object for Product
  */
 @Document(collection = "Price")
 public final class Price
@@ -27,6 +27,7 @@ public final class Price
 	@JsonProperty("value")
     private BigDecimal value;
 
+	// Only allow code to be 3 chars
 	@Length( max = 3, message = "Code can not be more than 3 characters")
 	@Pattern(regexp = "^[^0-9]+$", message = "The currencyCode cannot contain digits")
 	@Field("currency_code")

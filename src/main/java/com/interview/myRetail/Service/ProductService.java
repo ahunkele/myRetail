@@ -36,7 +36,7 @@ public final class ProductService
 	protected Logger logger = LoggerFactory.getLogger(ProductService.class);
 
 	@Autowired
-	ProductRepoitory productRepoitory;
+	private ProductRepoitory productRepoitory;
 
 	/**
 	 * 
@@ -55,7 +55,7 @@ public final class ProductService
 	 * @throws JsonMappingException
 	 * @throws JsonParseException
 	 */
-	public Product findProductByID(final Integer id) throws JsonParseException, JsonMappingException, IOException
+	public Product findProductByID(final Integer id) throws Exception
 	{
 		final String productName = grabProductName(RedskyClient.getProductInfoByID(id));
 		
@@ -73,7 +73,7 @@ public final class ProductService
 	 * @throws JsonMappingException 
 	 * @throws JsonParseException 
 	 */
-	public Product addProduct(final Product product) throws JsonParseException, JsonMappingException, IOException
+	public Product addProduct(final Product product) throws Exception
 	{
 		final String productName = grabProductName(RedskyClient.getProductInfoByID(product.getId()));
 		product.setName(productName);

@@ -13,7 +13,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.interview.myRetail.Service.ProductService;
 
 /**
- * 
+ * Client for making external calls to Redsky.
  */
 public class RedskyClient
 {
@@ -23,7 +23,15 @@ public class RedskyClient
 
 	static final String EXCLUSION_QUERY = "?excludes=taxonomy,price,promotion,bulk_ship,rating_and_review_reviews,rating_and_review_statistics,question_answer_statistics";
 
-	public static ResponseEntity<String> getProductInfoByID(final Integer id) throws JsonParseException, JsonMappingException, IOException
+	/**
+	 * Call redsky and grab the product by id.
+	 * @param id
+	 * @return {@link ResponseEntity}
+	 * @throws JsonParseException
+	 * @throws JsonMappingException
+	 * @throws IOException
+	 */
+	public static ResponseEntity<String> getProductInfoByID(final Integer id) throws Exception
 	{
 		RestTemplate restTemplate = new RestTemplate();
 		String productInformationURL = BASE_URL + id + EXCLUSION_QUERY;

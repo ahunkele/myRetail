@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Product
+ * The Product object.
  * 
  * @author Andy
  *
