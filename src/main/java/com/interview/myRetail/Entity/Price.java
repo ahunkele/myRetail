@@ -21,7 +21,7 @@ public final class Price
 
     @JsonIgnore
     @Id
-    private String id;
+    private Integer id;
 
 	@Field("price_value")
 	@JsonProperty("value")
@@ -34,12 +34,12 @@ public final class Price
     @JsonProperty("currency_code")
     private String currencyCode;
 
-    public String getId()
+    public Integer getId()
     {
         return id;
     }
 
-    public void setId(final String id)
+    public void setId(final Integer id)
     {
         this.id = id;
     }

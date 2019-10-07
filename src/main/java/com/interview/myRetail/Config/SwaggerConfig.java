@@ -29,7 +29,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport
 
     private ApiInfo apiEndPointsInfo()
     {
-        return new ApiInfoBuilder().title("Spring Boot REST API").description("Employee Management REST API").contact(new Contact("Ramesh Fadatare", "www.javaguides.net", "ramesh24fadatare@gmail.com")).license("Apache 2.0").licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html").version("1.0.0").build();
+        return new ApiInfoBuilder().title("myRetail Rest API").description("Product managment rest API").contact(new Contact("Andrew Hunkele", "www.ahunkele.com", "hunkeleandrew@gmail.com")).version("0.0.1").build();
     }
 
     @Override
@@ -39,3 +39,4 @@ public class SwaggerConfig extends WebMvcConfigurationSupport
         registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
 }
+ 

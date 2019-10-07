@@ -79,12 +79,26 @@ public class ProductController
 	 * @return {@link ResponseEntity}
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/{id}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Product> updateProduct(@PathVariable final Integer id, @RequestBody final Price price)
 			throws Exception
 	{
 		final Product product = productService.updateProductPriceById(id, price);
 
 		return new ResponseEntity<Product>(product, HttpStatus.OK);
+	}
+	
+	/**
+	 * {@link PostMapping} to delete a product.
+	 * 
+	 * @param id    the id of the product.
+	 * @return {@link ResponseEntity}
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public void deleteProduct(@PathVariable final Integer id)
+			throws Exception
+	{
+		productService.deleteProductById(id);
 	}
 }

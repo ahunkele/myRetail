@@ -10,14 +10,14 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.interview.myRetail.Service.ProductService;
+
 
 /**
  * Client for making external calls to Redsky.
  */
 public class RedskyClient
 {
-	protected Logger logger = LoggerFactory.getLogger(ProductService.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(RedskyClient.class);
 	
 	static final String BASE_URL = "https://redsky.target.com/v2/pdp/tcin/";
 
@@ -42,8 +42,8 @@ public class RedskyClient
 			response = restTemplate.getForEntity(productInformationURL, String.class);
 		} catch (final HttpClientErrorException e)
 		{
-			System.out.println(e.getStatusCode());
-			System.out.println(e.getResponseBodyAsString());
+			LOGGER.error("Error : " + e.getMessage());
+			throw new HttpClientErrorException(e.getStatusCode());
 		}
 
 		return response;

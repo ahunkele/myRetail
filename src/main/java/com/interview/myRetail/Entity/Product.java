@@ -27,6 +27,13 @@ public final class Product
 	@JsonProperty("current_price")
 	private Price price;
 
+	public Product(final Integer id, final String name, final Price price)
+	{
+		this.id = id;
+		this.name = name;
+		this.price = price;
+	}
+	
 	/**
 	 * @return the id
 	 */
