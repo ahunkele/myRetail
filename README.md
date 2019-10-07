@@ -2,9 +2,9 @@
 
 Rest Service for myRetail.
 
-##Technology used
+# Technology used
 
-Java 1.8
+Java 1.8, Mockito, JUnit
 
 MongoDB
 
@@ -14,7 +14,7 @@ SpringBoot 2.1.4.RELEASE
 
 Postman
 
-#Running application
+# Running application
 
 make sure mongoDB is running on port 27017
 
@@ -32,7 +32,7 @@ Now the application can be accessed via
 
 http://localhost:8081/products/
 
-End points: 
+# End points: 
 - GET: /products/  grabs all products
 - GET: /products/{id} grabs single product if found  
 - POST: /products/add creates a new product  
