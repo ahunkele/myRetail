@@ -2,7 +2,7 @@
 
 Rest Service for myRetail.
 
-#Technology used
+##Technology used
 
 Java 1.8
 
