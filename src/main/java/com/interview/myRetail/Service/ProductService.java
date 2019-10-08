@@ -7,7 +7,6 @@ package com.interview.myRetail.Service;
 
 import static org.springframework.util.Assert.notNull;
 
-import java.io.IOException;
 import java.util.Collection;
 import java.util.Map;
 
@@ -17,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.interview.myRetail.Entity.Price;
 import com.interview.myRetail.Entity.Product;
@@ -53,7 +53,8 @@ public class ProductService
 	 */
 	public Product findProductByID(final Integer id) throws Exception
 	{
-		final String productName = grabProductName(RedskyClient.getProductInfoByID(id));
+	    ResponseEntity<String> redskyResponse = RedskyClient.getProductInfoByID(id);
+		final String productName = grabProductName(redskyResponse);
 		if(productName == null)
 		{
 			LOGGER.error("Product was not found with id: " + id);

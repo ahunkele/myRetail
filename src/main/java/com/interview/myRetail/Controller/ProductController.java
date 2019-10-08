@@ -1,6 +1,7 @@
 package com.interview.myRetail.Controller;
 
 import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.interview.myRetail.Entity.Price;
 import com.interview.myRetail.Entity.Product;
 import com.interview.myRetail.Service.ProductService;
@@ -38,6 +40,7 @@ public class ProductController
 	public ResponseEntity<Collection<Product>> getAllProducts()
 	{
 		Collection<Product> productList = productService.getAllProducts();
+		
 		return new ResponseEntity<Collection<Product>>(productList, HttpStatus.OK);
 	}
 
@@ -74,7 +77,7 @@ public class ProductController
 	/**
 	 * {@link PostMapping} to update a product price.
 	 * 
-	 * @param id    the id of the product.
+	 * @param id the id of the product.
 	 * @param price the price to update
 	 * @return {@link ResponseEntity}
 	 * @throws Exception
@@ -91,7 +94,7 @@ public class ProductController
 	/**
 	 * {@link PostMapping} to delete a product.
 	 * 
-	 * @param id    the id of the product.
+	 * @param id the id of the product.
 	 * @return {@link ResponseEntity}
 	 * @throws Exception
 	 */

@@ -1,9 +1,11 @@
 package com.interview.myRetail.Entity;
 
 import javax.validation.Valid;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -16,61 +18,65 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public final class Product
 {
 
-	@Id
-	private Integer id;
+    @Id
+    private Integer id;
 
-	@Field("product_name")
-	@JsonProperty("name")
-	private String name;
+    @Field("product_name")
+    @JsonProperty("name")
+    private String name;
 
-	@Valid
-	@JsonProperty("current_price")
-	private Price price;
+    @Valid
+    @JsonProperty("current_price")
+    private Price price;
 
-	public Product(final Integer id, final String name, final Price price)
-	{
-		this.id = id;
-		this.name = name;
-		this.price = price;
-	}
-	
-	/**
-	 * @return the id
-	 */
-	public Integer getId()
-	{
-		return id;
-	}
+    public Product()
+    {
+    }
 
-	/**
-	 * @return the name
-	 */
-	public String getName()
-	{
-		return name;
-	}
+    public Product(final Integer id, final String name, final Price price)
+    {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
 
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name)
-	{
-		this.name = name;
-	}
+    /**
+     * @return the id
+     */
+    public Integer getId()
+    {
+        return id;
+    }
 
-	/**
-	 * @return the price
-	 */
-	public Price getPrice()
-	{
-		return price;
-	}
+    /**
+     * @return the name
+     */
+    public String getName()
+    {
+        return name;
+    }
 
-	/**
-	 * @param price the price to set
-	 */
-	public void setPrice(Price price)
-	{
-		this.price = price;
-	}
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    /**
+     * @return the price
+     */
+    public Price getPrice()
+    {
+        return price;
+    }
+
+    /**
+     * @param price the price to set
+     */
+    public void setPrice(Price price)
+    {
+        this.price = price;
+    }
 }
